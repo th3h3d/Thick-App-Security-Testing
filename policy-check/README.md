@@ -2,9 +2,10 @@
 
 High Level Checks:
 
--
+-N/A
 
 Low Level Checks:
+
 
 -Verify that user set passwords are at least 12 characters in length.
 
@@ -24,15 +25,22 @@ Low Level Checks:
 
 -Verify forgotten password, and other recovery paths use a secure recovery mechanism.
 
+
+
+
 ## Session Management Security:
 
 High Level Checks:
+
 
 Sessions are unique to each individual and cannot be guessed or shared.
 
 Sessions are invalidated when no longer required and timed out during periods of inactivity.
 
+
+
 Low Level Checks:
+
 
 -Verify the application never reveals session tokens in URL parameters.
 
@@ -44,9 +52,13 @@ Low Level Checks:
 
 -Verify that the application gives the option to terminate active sessions after a successful password change.
 
+
+
+
 ## Access Control:
 
 High Level Checks:
+
 
 Persons accessing resources hold valid credentials to do so.
 
@@ -54,7 +66,10 @@ Users are associated with a well-defined set of roles and privileges.
 
 Role and permission metadata is protected from replay or tampering.
 
+
+
 Low Level Checks:
+
 
 -Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.
 
@@ -62,9 +77,13 @@ Low Level Checks:
 
 -Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use.
 
+
+
+
 ## Validation, Sanitization and Encoding:
 
 High Level Checks:
+
 
 Input validation and output encoding architecture have an agreed pipeline to prevent injection attacks.
 
@@ -72,7 +91,10 @@ Input data is strongly typed, validated, range or length checked, or at worst, s
 
 Output data is encoded or escaped as per the context of the data as close to the interpreter as possible.
 
+
+
 Low Level Checks:
+
 
 -Verify that the application sanitizes user input before passing to any system.
 
@@ -82,9 +104,13 @@ Low Level Checks:
 
 -Verify that the application uses memory-safe string, safer memory copy and pointer arithmetic to detect or prevent stack, buffer, or heap overflows.
 
+
+
+
 ## Cryptography:
 
 High Level Checks:
+
 
 All cryptographic modules fail in a secure manner and that errors are handled correctly.
 
@@ -92,7 +118,10 @@ A suitable random number generator is used.
 
 Access to keys is securely managed.
 
+
+
 Low Level Checks:
+
 
 -Verify that regulated data is stored encrypted.
 
@@ -102,9 +131,13 @@ Low Level Checks:
 
 -Verify that a secrets management solution such as a key vault is used to securely create, store, control access to and destroy secrets.
 
+
+
+
 ## Error Handling and Logging:
 
 High Level Checks:
+
 
 Not collecting or logging sensitive information unless specifically required.
 
@@ -112,7 +145,10 @@ Ensuring all logged information is handled securely and protected as per its dat
 
 Ensuring that logs are not stored forever, but have an absolute lifetime that is as short as possible.
 
+
+
 Low Level Checks:
+
 
 -Verify that the application does not log any credentials, payment details or regulated data.
 
@@ -122,9 +158,13 @@ Low Level Checks:
 
 -Verify that a generic message is shown when an unexpected or security sensitive error occurs.
 
+
+
+
 ## Data Protection:
 
 High Level Checks:
+
 
 Confidentiality: Data should be protected from unauthorized observation or disclosure both in transit and when stored.
 
@@ -132,7 +172,10 @@ Integrity: Data should be protected from being maliciously created, altered or d
 
 Availability: Data should be available to authorized users as required.
 
+
+
 Low Level Checks:
+
 
 -Verify that backups are stored securely to prevent data from being stolen or corrupted.
 
@@ -144,9 +187,13 @@ Low Level Checks:
 
 -Verify that sensitive or private information that is required to be encrypted.
 
+
+
+
 ## Communication:
 
 High Level Checks:
+
 
 Require TLS or strong encryption, independent of sensitivity of the content.
 
@@ -154,7 +201,10 @@ Disable deprecated or known insecure algorithms and ciphers.
 
 Check your configuration periodically to ensure that secure communication is always present.
 
+
+
 Low Level Checks:
+
 
 -Verify that TLS is used for all client connectivity, and does not fall back to insecure or unencrypted communications.
 
@@ -162,13 +212,20 @@ Low Level Checks:
 
 -Verify that backend TLS connection failures are logged.
 
+
+
+
 ## Malicious Code:
 
 High Level Checks:
 
+
 Malicious activity is handled securely and properly to not affect the rest of the application.
 
+
+
 Low Level Checks:
+
 
 -Verify that the application source code and third party libraries do not contain malicious code,
 
@@ -178,27 +235,41 @@ Low Level Checks:
 
 -Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed.
 
+
+
+
 ## Business Logic:
 
 High Level Checks:
+
 
 The business logic flow is sequential, processed in order, and cannot be bypassed.
 
 Business logic includes limits to detect and prevent automated attacks.
 
+
+
 Low Level Checks:
+
 
 -Verify that the application will only process business logic flows for the same user in sequential step order.
 
 -Verify the application has business logic limits or validation to protect against likely business risks or threats.
 
+
+
+
 ## Files and Resources:
 
 High Level Checks:
 
+
 Untrusted file data should be handled accordingly and in a secure manner.
 
+
+
 Low Level Checks:
+
 
 -Verify that the application will not accept large files that could fill up storage or cause a denial of service.
 
@@ -206,13 +277,20 @@ Low Level Checks:
 
 -Verify that user-submitted filename metadata is not used directly by system or framework filesystems.
 
+
+
+
 ## Configuration:
 
 High Level Checks:
 
+
 Hardened third party library, dependency and configuration management such that out of date or insecure components are not included by the application
 
+
+
 Low Level Checks:
+
 
 -Verify that all components are up to date, preferably using a dependency checker during build or compile time.
 
