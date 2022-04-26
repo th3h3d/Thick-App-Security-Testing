@@ -1,3 +1,6 @@
+This check list has different sections and each section has couple of questions which will give testers some ideas about what to check or how to approach testing. 
+
+
 ## Information Gathering
 
 - Business Logic - DA
